@@ -1,12 +1,3 @@
-getgenv().executed = false
-makefolder("images_stuff")
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/shakar60/RickWare.CC/refs/heads/main/Misc/Bypasses",true))()
-
-local function x(s,k) local r="" for i=1,#s do r=r..string.char(s:byte(i)\~k) end return r end
-local function d(b) return (b:gsub("%%(%x%x)",function(h)return string.char(tonumber(h,16))end)) end
-
-local c=[[
 local function cooked(Sex3)
 
 if Sex3 then  
@@ -5966,6 +5957,3 @@ if game.PlaceId == 9825515356 then
 end
 
 cooked(true) 
-]]
-
-loadstring(x(d(c),69))()
