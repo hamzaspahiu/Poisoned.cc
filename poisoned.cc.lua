@@ -16,7 +16,11 @@ local startTime = os.clock()
 repeat wait() until game:IsLoaded()
 
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/shakar60/RickWare.CC/refs/heads/main/Misc/Bypasses",true))()
+local Poisoned = {
+    cc = {
+        Enabled = false,pcall(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/shakar60/RickWare.CC/refs/heads/main/Misc/Bypasses",true))()
+end)
 
 if not LPH_OBFUSCATED then
     LPH_JIT = function(...) return ... end
@@ -187,18 +191,23 @@ local  Highlight = false
 
 
 local function toggleAimViewer()
-local players = game:GetService("Players")
+    local players = game:GetService("Players")
     local player = players.LocalPlayer
-    player.CharacterAdded:Connect(function()
-        local gui = player.PlayerGui:WaitForChild("gui")
-        local aimViewerFrame = gui.Settings.ScrollingFrame.aimviewer
-        aimViewerFrame.Visible = true
-    end)
+    
+    local function enableViewer()
+        pcall(function()
+            local gui = player.PlayerGui:WaitForChild("gui", 3)
+            if gui then
+                local aimViewerFrame = gui.Settings.ScrollingFrame.aimviewer
+                aimViewerFrame.Visible = true
+            end
+        end)
+    end
 
-    local gui = player.PlayerGui:WaitForChild("gui")
-    local aimViewerFrame = gui.Settings.ScrollingFrame.aimviewer
-    aimViewerFrame.Visible = true
+    player.CharacterAdded:Connect(enableViewer)
+    enableViewer()
 end
+
 
 
 
@@ -2533,5 +2542,4 @@ end)
 
 end
 end
-
 cooked(true)
